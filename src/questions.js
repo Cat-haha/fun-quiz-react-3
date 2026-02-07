@@ -24,7 +24,6 @@ const questions = [
     question: "#4. What's this?",
     answer: [
       "the concept of the color blue",
-      "blue",
       "concept of the color blue",
       "concept of blue",
       "the concept of blue",

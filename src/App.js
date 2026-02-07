@@ -15,6 +15,8 @@
 // 13. remove score on "what question is this" DONE
 // 3. skip question functionalitY DONE but only because of the jump to specific question functionality
 // 11. fix numbering for 16a. and 16b. and adjust based on that DONE because i'm NOT messing up my whole question array just for 16a and 16b :)
+// submit button dont work DONE
+// question #4 anything but blue dont work DONE
 
 import "./styles.css";
 import Leaderboard from "./leaderboard.js";
@@ -221,10 +223,10 @@ export default function App() {
         } else if (qIndex === 18 && userAnswer === "green lemons") {
           handleBonus();
         } else if (qIndex === 3) {
-          if (userAnswer === "france") {
-            handleBonus();
-          } else if (userAnswer.includes("blue")) {
+           if (userAnswer.includes("blue")) {
             setAsCorrect();
+          } else {
+            setAsIncorrect();
           }
         } else if (qIndex === 22) {
           setScoreClass("hide");
@@ -288,8 +290,6 @@ export default function App() {
 
     const x = Math.round(clickX * scaleX);
     const y = Math.round(clickY * scaleY);
-
-    console.log(`Clicked at natural coords: X=${x}, Y=${y}`); // REMOVE LATER
 
     const isWithinRangeX = x >= 1 && x <= 85;
     const isWithinRangeY = y >= 171 && y <= 271;
@@ -438,7 +438,7 @@ export default function App() {
           <p>
             press the go to next question button or{" "}
             <strong>right arrow key</strong> to <strong>continue</strong>
-          </p>\
+          </p>
           <p>Press "Open Question List" button to see all questions in a list</p>
           <hr />
           <br />
@@ -489,7 +489,7 @@ export default function App() {
           <img className={showHint} src={questions[qIndex].hintImage} />
           <br />
           <br />
-          <button type="submit">Submit</button>
+          <button onClick={handleSubmit} type="submit">Submit</button>
           <br />
           <br />
           <button onClick={giveUp}>Give Up [this question]</button>
