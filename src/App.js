@@ -356,7 +356,7 @@ export default function App() {
       setGaveUp(false);
       setShowInput(true);
     }
-  }, [goToNextQuestion]);
+}, [qIndex, canContinue]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
