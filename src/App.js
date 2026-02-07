@@ -21,12 +21,6 @@ import Leaderboard from "./leaderboard.js";
 import questions from "./questions.js";
 import TemporaryDrawer from "./drawer.js";
 import {
-  collection,
-  query,
-  orderBy,
-  limit,
-  onSnapshot,
-  addDoc,
   serverTimestamp,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
