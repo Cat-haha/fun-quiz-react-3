@@ -23,7 +23,7 @@ import TemporaryDrawer from "./drawer.js";
 import {
   serverTimestamp,
 } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { db } from "./firebase.js";
 import { getAuth, signInAnonymously, onAuthStateChanged } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
