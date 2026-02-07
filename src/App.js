@@ -112,7 +112,6 @@ export default function App() {
 
   useEffect(() => {
     setDisplayImg(questions[qIndex].image);
-    setFade(true);
   }, [qIndex]);
 
   const giveUp = () => {
@@ -132,11 +131,9 @@ export default function App() {
       (ans) => ans.toLowerCase() === userAnswer
     );
     setShowInput(false);
-    setFade(false);
 
     setTimeout(() => {
       setDisplayImg(questions[qIndex].feedbackImage);
-      setFade(true);
     });
     setScore(score + 1);
     setAnswersArray((prev) => [
@@ -151,7 +148,6 @@ export default function App() {
         score: score + 1,
       },
     ]);
-    setShownName("shown");
     setResult("Correct!");
     setShowHint("hidden");
     setAlrAnswered(true);
@@ -171,7 +167,6 @@ export default function App() {
     console.log(attempts);
     if (attempts > 0) {
       setShowInput(false);
-      setShownName("shown");
       setResult("Incorrect. Go to the next question.");
       setCanContinue(true);
       setShowHint("hidden");
@@ -256,7 +251,6 @@ export default function App() {
         setResult("You gave up. Continue to next question.");
         setGaveUp(true);
         setShowInput(false);
-        setShownName("shown");
         setCanContinue(true);
         setShowHint("hidden");
         setAlrAnswered(true);
@@ -295,7 +289,6 @@ export default function App() {
     const x = Math.round(clickX * scaleX);
     const y = Math.round(clickY * scaleY);
 
-    setCoords({ x, y });
     console.log(`Clicked at natural coords: X=${x}, Y=${y}`); // REMOVE LATER
 
     const isWithinRangeX = x >= 1 && x <= 85;
@@ -357,7 +350,6 @@ export default function App() {
       setqIndex(qIndex + 1);
       setAlrAnswered(false);
       setResult("");
-      setShownName("hidden");
       setInputValue("");
       setCanContinue(false);
       setBonusAnswered(false);
