@@ -438,12 +438,8 @@ export default function App() {
           <p>
             press the go to next question button or{" "}
             <strong>right arrow key</strong> to <strong>continue</strong>
-          </p>
-          <p>
-            also please bear with me, i know the image system isn't the best,
-            but it's surprisingly difficult to fix it. just wait for the image
-            to load to ensure proper functionality
-          </p>
+          </p>\
+          <p>Press "Open Question List" button to see all questions in a list</p>
           <hr />
           <br />
           <p className={scoreClass}>Score: {score}</p>

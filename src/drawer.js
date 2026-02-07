@@ -43,7 +43,7 @@ export default function TemporaryDrawer({ setqIndex, alreadyAnsweredArray }) {
 
   return (
     <div>
-      <button onClick={toggleDrawer(true)}>Open drawer</button>
+      <button onClick={toggleDrawer(true)}>Open Question List</button>
       <Drawer open={open} onClose={toggleDrawer(false)}>
         {DrawerList}
       </Drawer>
