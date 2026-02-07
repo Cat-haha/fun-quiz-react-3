@@ -2,6 +2,9 @@
 
 // 6. bonus point functionality for questions like "also accepts". should be on top of the main point aswell
 // 7. for questions where it's stuff like "red lettuce", add stuff like "almost there" if they just put lettuce
+// make give up turn into next question when you get it right or wrong
+// when incorrect, show right answer
+// remove question from question list when you get it incorrect
 // ---------------------------------------------------------
 // 8. `it's not ${userAnswer}, it's digiorno!` DONE
 // 5. give up functionality DONE
@@ -291,17 +294,37 @@ export default function App() {
     const x = Math.round(clickX * scaleX);
     const y = Math.round(clickY * scaleY);
 
-    const isWithinRangeX = x >= 1 && x <= 85;
-    const isWithinRangeY = y >= 171 && y <= 271;
 
     if (qIndex === 11) {
+    const isWithinRangeX = x >= 1 && x <= 85;
+    const isWithinRangeY = y >= 171 && y <= 271;
       if (!alrAnswered) {
         if (isWithinRangeX && isWithinRangeY) {
           setAsCorrect();
           setResult("There he is!");
         } else {
           setAsIncorrect();
-          setResult("You did NOT find waldo. Try again.");
+            if (attempts > 0) {
+              setResult("You did NOT find waldo. Go to the next question.");
+            } else {
+              setResult("You did NOT find waldo. Try again.");
+            }
+        }
+      }
+    } 
+    if (qIndex === 124){
+      const isWithinRangeX = x >= 236 && x <= 336;
+      const isWithinRangeY = y >= 77 && y <= 177;
+      if (!alrAnswered) {
+        if (isWithinRangeX && isWithinRangeY) {
+          setAsCorrect();
+          setResult("There she is!");
+        } else {
+          setAsIncorrect();if (attempts > 0) {
+              setResult("You did NOT find the queen bee. Go to the next question.");
+            } else {
+              setResult("You did NOT find the queen bee. Try again.");
+            }
         }
       }
     }
@@ -407,7 +430,6 @@ export default function App() {
 
   return (
     <div className={`App ${section}`}>
-      <br />
       <div className={startButton}>
         <button onClick={startQuiz}>Start Quiz</button> <br />
         <br />
@@ -458,7 +480,7 @@ export default function App() {
           <br />
           <h1>{questions[qIndex].question}</h1>
           <br />
-          {displayImg && (
+          {displayImg && ( 
             <img
               onClick={handleClick}
               key={displayImg}
