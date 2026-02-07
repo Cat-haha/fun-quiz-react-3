@@ -83,13 +83,11 @@ export default function App() {
 
   const [answersArray, setAnswersArray] = useState([]);
   const [alreadyAnsweredArray, setAlreadyAnsweredArray] = useState([]);
-  const [fade, setFade] = useState(true);
   const [hasUsername, setHasUsername] = useState(false);
   const [startButton, setStartButton] = useState("stBtnShow");
   const [username, setUsername] = useState(undefined);
   const [displayImg, setDisplayImg] = useState("");
   const [qIndex, setqIndex] = useState(0);
-  const [shownName, setShownName] = useState("hidden");
   const [inputValue, setInputValue] = useState("");
   const [score, setScore] = useState(0);
   const [result, setResult] = useState("");
@@ -103,7 +101,6 @@ export default function App() {
   const [closeButton, setCloseButton] = useState("hidden");
   const [section, setSection] = useState("pretest");
   const [attempts, setAttempts] = useState(0);
-  const [coords, setCoords] = useState({ x: 0, y: 0 });
   const [bonusAnswered, setBonusAnswered] = useState(false);
   const [showInput, setShowInput] = useState(true);
   const [gaveUp, setGaveUp] = useState(false);
